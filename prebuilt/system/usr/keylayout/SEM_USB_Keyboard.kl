@@ -12,14 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# Generic key layout file for full alphabetic US English PC style external keyboards.
-#
-# This file is intentionally very generic and is intended to support a broad rang of keyboards.
-# Do not edit the generic key layout to support a specific keyboard; instead, create
-# a new key layout file with the required keyboard configuration.
-#
-
 key 1     ESCAPE
 key 2     1
 key 3     2
@@ -82,7 +74,7 @@ key 59    HOME
 key 60    BACK
 key 61    MENU
 key 62    INFO
-key 63    F5
+key 63    POWER
 key 64    F6
 key 65    F7
 key 66    F8
@@ -152,11 +144,11 @@ key 128   MEDIA_STOP
 # key 130 "KEY_PROPS"
 # key 131 "KEY_UNDO"
 # key 132 "KEY_FRONT"
-# key 133 "KEY_COPY"
+key 133   COPY
 # key 134 "KEY_OPEN"
-# key 135 "KEY_PASTE"
+key 135   PASTE
 # key 136 "KEY_FIND"
-# key 137 "KEY_CUT"
+key 137   CUT
 # key 138 "KEY_HELP"
 key 139   MENU
 key 140   CALCULATOR
@@ -246,8 +238,6 @@ key 217   SEARCH
 key 224   BRIGHTNESS_DOWN
 key 225   BRIGHTNESS_UP
 key 226   HEADSETHOOK
-key 227   STAR
-key 228   POUND
 
 key 256   BUTTON_1
 key 257   BUTTON_2
