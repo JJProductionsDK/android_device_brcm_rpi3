@@ -42,6 +42,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
 
