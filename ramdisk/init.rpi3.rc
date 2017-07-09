@@ -1,4 +1,7 @@
 
+on early-init
+    mount debugfs debugfs /sys/kernel/debug mode=0755
+
 on init
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
