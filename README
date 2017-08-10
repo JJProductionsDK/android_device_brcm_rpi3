@@ -3,15 +3,14 @@ Read it first : https://github.com/android-rpi/local_manifests
 # Build Kernel
  Install gcc-arm-linux-gnueabihf
  $ cd kernel/rpi
- $ ARCH=arm scripts/kconfig/merge_config.sh arch/arm/configs/bcm2709_defconfig android/configs/android-base.cfg android/configs/android-recommended.cfg
- $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage
- $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make dtbs
+ $ ARCH=arm make lineageos_rpi3_defconfig
+ $ ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage dtbs
 
 # Install python mako module
   sudo apt-get install python-mako
 
 # Patch framework source :
-  https://github.com/android-rpi/device_brcm_rpi3/wiki#use-hal_pixel_format_bgra_8888
+  https://github.com/lineage-rpi/android_local_manifest/tree/cm-14.1/patches
  
 # Build Android source
  Continue build with http://source.android.com/source/building.html
