@@ -10,6 +10,9 @@ ro.sf.lcd_density=160
 # GPS
 ro.kernel.android.gps=ttyACM0
 
+# Media
+persist.media.treble_omx=false
+
 # Memory
 ro.config.max_starting_bg=4
 
