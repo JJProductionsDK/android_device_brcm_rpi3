@@ -120,6 +120,6 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">20</integer>
 
-    <integer name="config_buttonBrightnessSettingDefault">0</integer>
+    <!--<integer name="config_buttonBrightnessSettingDefault">0</integer>-->
 
 </resources>
