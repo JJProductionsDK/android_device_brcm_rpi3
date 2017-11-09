@@ -1,3 +1,6 @@
+# Bluetooth
+vendor/firmware/brcm/BCM43430A1.hcd
+
 # Widevine
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
