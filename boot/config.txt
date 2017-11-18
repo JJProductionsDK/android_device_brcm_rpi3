@@ -9,6 +9,8 @@ framebuffer_height=720
 kernel=zImage
 device_tree=bcm2710-rpi-3-b.dtb
 dtparam=audio=on
+dtparam=i2c_arm=on
+dtparam=spi=on
 #dtoverlay=vc4-fkms-v3d,cma-256
 dtoverlay=vc4-kms-v3d,cma-256
 dtoverlay=i2c-rtc,ds3231

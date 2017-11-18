@@ -40,6 +40,13 @@ PRODUCT_PACKAGES += \
     hwcomposer.rpi3 \
     libGLES_mesa
 
+# I2C
+PRODUCT_PACKAGES += \
+    i2cdetect \
+    i2cdump \
+    i2cget \
+    i2cset
+
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
