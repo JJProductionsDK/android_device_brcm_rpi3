@@ -9,7 +9,6 @@ dtparam=audio=on
 # Display
 hdmi_force_hotplug=1
 hdmi_drive=2
-config_hdmi_boost=4
 hdmi_group=1
 hdmi_mode=4
 disable_overscan=1
