@@ -67,11 +67,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     hostapd \
     wificond \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
-PRODUCT_COPY_FILES += \
-    hardware/broadcom/wlan/bcmdhd/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    wpa_supplicant
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
