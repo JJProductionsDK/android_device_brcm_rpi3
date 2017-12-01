@@ -23,10 +23,13 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on boot
+    # Lights
+    chown system system /sys/class/backlight/rpi_backlight/brightness
+
     setprop net.dns1 8.8.8.8
     setprop net.dns2 8.8.4.4
 
-# fake some battery state
+    # fake some battery state
     setprop status.battery.state Slow
     setprop status.battery.level 5
     setprop status.battery.level_raw  50

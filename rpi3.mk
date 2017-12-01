@@ -47,6 +47,10 @@ PRODUCT_PACKAGES += \
     i2cget \
     i2cset
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.rpi3
+
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
