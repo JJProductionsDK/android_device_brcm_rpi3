@@ -1,6 +1,5 @@
 # Kernel
 kernel=zImage
-device_tree=bcm2710-rpi-3-b.dtb
 initramfs ramdisk.img 0x01f00000
 
 # Audio
