@@ -46,10 +46,10 @@ PRODUCT_PACKAGES += \
     gps.rpi3
 
 # Graphics
-PRODUCT_PACKAGES += \
-    gralloc.rpi3 \
-    hwcomposer.rpi3 \
-    libGLES_mesa
+#PRODUCT_PACKAGES += \
+#    gralloc.rpi3 \
+#    hwcomposer.rpi3 \
+#    libGLES_mesa
 
 # I2C
 PRODUCT_PACKAGES += \
