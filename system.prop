@@ -4,6 +4,12 @@ debug.drm.mode.force=1280x720
 ro.opengles.version=131072
 ro.sf.lcd_density=160
 
+# Memory
+config.disable_atlas=true
+ro.config.low_ram=true
+ro.config.max_starting_bg=4
+persist.sys.force_highendgfx=true
+
 # Scheduler
 sys.io.scheduler=bfq
 
