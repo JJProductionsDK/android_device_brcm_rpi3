@@ -56,12 +56,12 @@ else
 	mount /dev/mapper/loop0p1 sdcard/boot
 	sync
 	cp boot/* sdcard/boot
-	cp ../../../kernel/rpi/arch/arm/boot/zImage sdcard/boot
-	cp ../../../kernel/rpi/arch/arm/boot/dts/bcm2709-rpi-2-b.dtb sdcard/boot
-	cp ../../../kernel/rpi/arch/arm/boot/dts/bcm2710-rpi-3-b.dtb sdcard/boot
-	cp ../../../kernel/rpi/arch/arm/boot/dts/bcm2710-rpi-cm3.dtb sdcard/boot
+	cp ../../../kernel/brcm/rpi3/arch/arm/boot/zImage sdcard/boot
+	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/bcm2709-rpi-2-b.dtb sdcard/boot
+	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/bcm2710-rpi-3-b.dtb sdcard/boot
+	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/bcm2710-rpi-cm3.dtb sdcard/boot
 	mkdir -p sdcard/boot/overlays
-	cp ../../../kernel/rpi/arch/arm/boot/dts/overlays/*.dtbo sdcard/boot/overlays
+	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/overlays/*.dtbo sdcard/boot/overlays
 	cp ../../../out/target/product/rpi3/ramdisk.img sdcard/boot
 	sync
 	umount /dev/mapper/loop0p1
