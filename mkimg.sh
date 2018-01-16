@@ -1,22 +1,23 @@
 #/bin/bash
-echo "EXPERIMENTAL SCRIPT! USE AT YOUR OWN RISK!"
+
+LINEAGEVERSION=lineage-14.1
+DATE=`date +%Y%m%d`
+IMGNAME=$LINEAGEVERSION-$DATE-rpi3.img
+IMGSIZE=4
+
 if [ `id -u` != 0 ]; then
-    echo "Must be root to run script"
-    exit
+	echo "Must be root to run script!"
+	exit
 fi
 
-echo "Enter Image Size in GiB"
-read SIZE
-
-if  [ "$SIZE" -lt 3 ] ; then
-	echo "Size should be more than 3GiB"
+if [ -f $IMGNAME ]; then
+	echo "File $IMGNAME already exists!"
 else
-	echo "Enter Filename:"
-	read IMGNAME
-	echo "Creating Image File:"
-	dd if=/dev/zero of="$IMGNAME".img bs=512k count=$(echo "$SIZE*1024*2" | bc)
+	echo "Creating image file $IMGNAME..."
+	dd if=/dev/zero of=$IMGNAME bs=512k count=$(echo "$IMGSIZE*1024*2" | bc)
 	sync
-	kpartx -a "$IMGNAME".img
+	echo "Creating partitions..."
+	kpartx -a $IMGNAME
 	sync
 	(
 	echo o
@@ -43,14 +44,16 @@ else
 	echo w
 	) | fdisk /dev/loop0
 	sync
-	kpartx -d "$IMGNAME".img
+	kpartx -d $IMGNAME
 	sync
-	kpartx -a "$IMGNAME".img
+	kpartx -a $IMGNAME
 	sync
 	sleep 5
 	mkfs.fat -F 32 /dev/mapper/loop0p1
 	mkfs.ext4 /dev/mapper/loop0p3
+	echo "Copying system..."
 	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/loop0p2 bs=1M
+	echo "Copying boot..."
 	mkdir -p sdcard/boot
 	sync
 	mount /dev/mapper/loop0p1 sdcard/boot
@@ -67,7 +70,7 @@ else
 	sync
 	umount /dev/mapper/loop0p1
 	rm -rf sdcard
-	kpartx -d "$IMGNAME".img
+	kpartx -d $IMGNAME
 	sync
-	echo "DONE"
+	echo "Done, created $IMGNAME!"
 fi
