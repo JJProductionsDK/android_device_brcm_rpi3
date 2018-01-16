@@ -33,12 +33,12 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Default to sanitizing the vendor folder before extraction
-CLEAN_VENDOR=true
+# Default to not sanitizing the vendor folder before extraction
+CLEAN_VENDOR=false
 
 while [ "$1" != "" ]; do
     case $1 in
-        -n | --no-cleanup )     CLEAN_VENDOR=false
+        -c | --clean-vendor )   CLEAN_VENDOR=true
                                 ;;
         -s | --section )        shift
                                 SECTION=$1
