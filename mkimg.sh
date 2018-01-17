@@ -56,6 +56,7 @@ else
 	mount /dev/mapper/loop0p1 sdcard/boot
 	sync
 	cp boot/* sdcard/boot
+	cp ../../../vendor/brcm/rpi3/proprietary/boot/* sdcard/boot
 	cp ../../../kernel/brcm/rpi3/arch/arm/boot/zImage sdcard/boot
 	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/bcm2709-rpi-2-b.dtb sdcard/boot
 	cp ../../../kernel/brcm/rpi3/arch/arm/boot/dts/bcm2710-rpi-3-b.dtb sdcard/boot
