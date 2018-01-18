@@ -18,7 +18,7 @@ DEVICE_PACKAGE_OVERLAYS += device/brcm/rpi3/overlay
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
-$(call inherit-product-if-exists, vendor/brcm/rpi3/rpi3-vendor.mk)
+$(call inherit-product, vendor/brcm/rpi3/rpi3-vendor.mk)
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi
