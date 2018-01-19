@@ -18,7 +18,6 @@ LOCAL_PATH := device/brcm/rpi3
 
 # Platform
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := true
 TARGET_NO_RECOVERY := true
 
 TARGET_BOARD_PLATFORM := bcm2710
@@ -28,6 +27,10 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
+
+# Kernel
+TARGET_KERNEL_CONFIG := lineageos_rpi3_defconfig
+TARGET_KERNEL_SOURCE := kernel/brcm/rpi3
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
