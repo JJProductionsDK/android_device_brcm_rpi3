@@ -1,6 +1,7 @@
 # Kernel
 kernel=zImage
 initramfs ramdisk.img 0x01f00000
+start_x=1
 
 # Audio
 dtparam=audio=on
