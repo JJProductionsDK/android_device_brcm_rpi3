@@ -24,10 +24,6 @@
          is disableable for products for which it is irrelevant. -->
     <bool name="config_useVolumeKeySounds">false</bool>
 
-    <!-- Flag indicating whether the AUDIO_BECOMING_NOISY notification should
-         be sent during a change to the audio output device. -->
-    <bool name="config_sendAudioBecomingNoisy">false</bool>
-
     <!-- Flag indicating whether the current device is "voice capable".
          If true, this means that the device supports circuit-switched
          (i.e. voice) phone calls over the telephony network, and is
