@@ -35,6 +35,11 @@ else
 	echo p
 	echo 3
 	echo
+	echo +256M
+	echo n
+	echo p
+	echo 4
+	echo
 	echo
 	echo t
 	echo 1
@@ -50,9 +55,11 @@ else
 	sync
 	sleep 5
 	mkfs.fat -F 32 /dev/mapper/loop0p1
-	mkfs.ext4 /dev/mapper/loop0p3
+	mkfs.ext4 /dev/mapper/loop0p4
 	echo "Copying system..."
 	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/loop0p2 bs=1M
+	echo "Copying vendor..."
+	dd if=../../../out/target/product/rpi3/vendor.img of=/dev/mapper/loop0p3 bs=1M
 	echo "Copying boot..."
 	mkdir -p sdcard/boot
 	sync
