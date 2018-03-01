@@ -21,6 +21,9 @@
     <!-- Default screen brightness -->
     <integer name="def_screen_brightness">128</integer>
 
+    <!-- Disable bluetooth by default -->
+    <bool name="def_bluetooth_on">false</bool>
+
     <!-- Do not enable auto rotation switching -->
     <bool name="def_accelerometer_rotation">false</bool>
 
