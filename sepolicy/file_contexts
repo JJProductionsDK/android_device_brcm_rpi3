@@ -1,3 +1,3 @@
-/dev/dri/card[0-9]+		u:object_r:dri_device:s0
+/dev/dri(/.*)?                  u:object_r:gpu_device:s0
 /dev/ttyAMA0                    u:object_r:hci_attach_dev:s0
 /dev/ttyACM0                    u:object_r:gps_device:s0
