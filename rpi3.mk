@@ -76,7 +76,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.rpi3
+    android.hardware.light@2.0-service.rpi3
 
 # Wifi
 PRODUCT_PACKAGES += \
