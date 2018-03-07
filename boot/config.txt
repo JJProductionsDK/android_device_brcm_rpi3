@@ -14,7 +14,6 @@ hdmi_mode=4
 disable_overscan=1
 #framebuffer_width=1280
 #framebuffer_height=720
-framebuffer_swap=0
 
 # Graphics acceleration
 #dtoverlay=vc4-fkms-v3d,cma-256
