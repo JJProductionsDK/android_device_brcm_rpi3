@@ -18,9 +18,6 @@ persist.media.treble_omx=false
 # Memory
 ro.config.max_starting_bg=4
 
-# Scheduler
-sys.io.scheduler=bfq
-
 # Storage
 ro.sys.sdcardfs=true
 
