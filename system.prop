@@ -16,9 +16,6 @@ ro.config.low_ram=true
 ro.config.max_starting_bg=4
 persist.sys.force_highendgfx=true
 
-# Scheduler
-sys.io.scheduler=bfq
-
 # Storage
 ro.sys.sdcardfs=true
 
