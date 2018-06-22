@@ -56,6 +56,7 @@ else
 	sleep 5
 	mkfs.fat -F 32 /dev/mapper/loop0p1
 	mkfs.ext4 /dev/mapper/loop0p4
+	resize2fs /dev/mapper/loop0p4 687868
 	echo "Copying system..."
 	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/loop0p2 bs=1M
 	echo "Copying vendor..."
