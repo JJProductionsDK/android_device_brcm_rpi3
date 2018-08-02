@@ -4,6 +4,7 @@ LINEAGEVERSION=lineage-14.1
 DATE=`date +%Y%m%d`
 IMGNAME=$LINEAGEVERSION-$DATE-rpi3.img
 IMGSIZE=4
+OUTDIR=${ANDROID_PRODUCT_OUT:="../../../out/target/product/rpi3"}
 
 if [ `id -u` != 0 ]; then
 	echo "Must be root to run script!"
@@ -54,7 +55,7 @@ else
 	mkfs.ext4 /dev/mapper/${LOOPDEV}p3
 	resize2fs /dev/mapper/${LOOPDEV}p3 753404
 	echo "Copying system..."
-	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/${LOOPDEV}p2 bs=1M
+	dd if=$OUTDIR/system.img of=/dev/mapper/${LOOPDEV}p2 bs=1M
 	echo "Copying boot..."
 	mkdir -p sdcard/boot
 	sync
@@ -62,9 +63,9 @@ else
 	sync
 	cp boot/* sdcard/boot
 	cp ../../../vendor/brcm/rpi3/proprietary/boot/* sdcard/boot
-	cp ../../../out/target/product/rpi3/obj/KERNEL_OBJ/arch/arm/boot/zImage sdcard/boot
-	cp -R ../../../out/target/product/rpi3/obj/KERNEL_OBJ/arch/arm/boot/dts/* sdcard/boot
-	cp ../../../out/target/product/rpi3/ramdisk.img sdcard/boot
+	cp $OUTDIR/obj/KERNEL_OBJ/arch/arm/boot/zImage sdcard/boot
+	cp -R $OUTDIR/obj/KERNEL_OBJ/arch/arm/boot/dts/* sdcard/boot
+	cp $OUTDIR/ramdisk.img sdcard/boot
 	sync
 	umount /dev/mapper/${LOOPDEV}p1
 	rm -rf sdcard
