@@ -17,8 +17,6 @@ else
 	dd if=/dev/zero of=$IMGNAME bs=512k count=$(echo "$IMGSIZE*1024*2" | bc)
 	sync
 	echo "Creating partitions..."
-	kpartx -a $IMGNAME
-	sync
 	(
 	echo o
 	echo n
@@ -42,22 +40,25 @@ else
 	echo a
 	echo 1
 	echo w
-	) | fdisk /dev/loop0
+	) | fdisk $IMGNAME
 	sync
-	kpartx -d $IMGNAME
+	LOOPDEV=`kpartx -av $IMGNAME | awk 'NR==1{ sub(/p[0-9]$/, "", $3); print $3 }'`
 	sync
-	kpartx -a $IMGNAME
-	sync
+	if [ -z "$LOOPDEV" ]; then
+		echo "Unable to find loop device!"
+		exit
+	fi
+	echo "Image mounted as $LOOPDEV"
 	sleep 5
-	mkfs.fat -F 32 /dev/mapper/loop0p1
-	mkfs.ext4 /dev/mapper/loop0p3
-	resize2fs /dev/mapper/loop0p3 753404
+	mkfs.fat -F 32 /dev/mapper/${LOOPDEV}p1
+	mkfs.ext4 /dev/mapper/${LOOPDEV}p3
+	resize2fs /dev/mapper/${LOOPDEV}p3 753404
 	echo "Copying system..."
-	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/loop0p2 bs=1M
+	dd if=../../../out/target/product/rpi3/system.img of=/dev/mapper/${LOOPDEV}p2 bs=1M
 	echo "Copying boot..."
 	mkdir -p sdcard/boot
 	sync
-	mount /dev/mapper/loop0p1 sdcard/boot
+	mount /dev/mapper/${LOOPDEV}p1 sdcard/boot
 	sync
 	cp boot/* sdcard/boot
 	cp ../../../vendor/brcm/rpi3/proprietary/boot/* sdcard/boot
@@ -65,7 +66,7 @@ else
 	cp -R ../../../out/target/product/rpi3/obj/KERNEL_OBJ/arch/arm/boot/dts/* sdcard/boot
 	cp ../../../out/target/product/rpi3/ramdisk.img sdcard/boot
 	sync
-	umount /dev/mapper/loop0p1
+	umount /dev/mapper/${LOOPDEV}p1
 	rm -rf sdcard
 	kpartx -d $IMGNAME
 	sync
