@@ -51,6 +51,7 @@ else
 	sync
 	if [ -z "$LOOPDEV" ]; then
 		echo "Unable to find loop device!"
+		kpartx -d $IMGNAME
 		exit
 	fi
 	echo "Image mounted as $LOOPDEV"
