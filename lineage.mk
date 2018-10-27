@@ -14,8 +14,8 @@ WITH_SU := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := rpi3
-PRODUCT_NAME := Pi TV
-PRODUCT_BRAND := Raspberry
-PRODUCT_MODEL := Pi 3
+PRODUCT_NAME := lineage_rpi3
+PRODUCT_BRAND := Pi
+PRODUCT_MODEL := 3B
 PRODUCT_MANUFACTURER := Raspberry
-PRODUCT_RELEASE_NAME := Raspberry Pi 3
+PRODUCT_RELEASE_NAME := Pi TV
